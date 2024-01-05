@@ -5,9 +5,9 @@ class Game
 
     def initialize
         puts 'Player 1 - please enter your name.'
-        @player_one_name = gets.chomp
+        @player_one = gets.chomp
         puts 'Player 2 - please enter your name.'
-        @player_two_name = gets.chomp
+        @player_two = gets.chomp
         @board = Array.new(3) { Array.new(3, '_') }
     end
 
@@ -21,9 +21,9 @@ class Game
 
     def player_turn(turn)
         if turn.odd?
-            player_choice(@player_one_name, 'O')
+            player_choice(@player_one, 'X')
         else
-            player_choice(@player_two_name, 'X')
+            player_choice(@player_two, 'O')
         end
     end
 
@@ -99,9 +99,9 @@ class Game
     end
 
     def declare_results
-        if @@winner == 'O'
+        if @@winner == 'X'
             puts "#{@player_one} wins the game!"
-        elsif @@winner == 'X'
+        elsif @@winner == 'O'
             puts "#{@player_two} wins the game!"
         else
             puts "It's a tie..."
